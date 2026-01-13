@@ -1,0 +1,120 @@
+﻿@model Proiect_Zboruri_Cilibia_Malina.Models.DashboardStats.DashboardViewModel
+@using System.Text.Json
+
+@{
+    ViewData["Title"] = "Dashboard Statistici";
+    var tealColor = "#006064";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4" style="color: @tealColor;">Dashboard statistici zboruri</h2>
+
+    <div class="card shadow-sm mb-4 border-0">
+        <div class="card-body bg-light">
+            <form method="get" asp-action="Dashboard" class="row g-3">
+                <div class="col-md-4">
+                    <label class="form-label fw-bold">De la data:</label>
+                    <input type="date" name="fromDate" class="form-control"
+                           value="@(Model.FromDate?.ToString("yyyy-MM-dd"))" />
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label fw-bold">Până la data:</label>
+                    <input type="date" name="toDate" class="form-control"
+                           value="@(Model.ToDate?.ToString("yyyy-MM-dd"))" />
+                </div>
+                <div class="col-md-4 align-self-end">
+                    <button type="submit" class="btn btn-teal w-100 fw-bold">Filtrează datele</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="card text-white shadow-sm mb-3" style="background-color: @tealColor;">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Total Predicții</h5>
+                    <p class="display-4 fw-bold">@Model.TotalPredictions</p>
+                    <small>în intervalul selectat</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="card shadow-sm mb-3 h-100">
+                <div class="card-body">
+                    <h5 class="card-title mb-3" style="color: @tealColor;">Distanță medie per clasă zbor</h5>
+                    <table class="table table-hover align-middle">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Clasă</th>
+                                <th class="text-center">Nr. pasageri</th>
+                                <th class="text-end">Distanță medie (km)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.ClassStats)
+                            {
+                                <tr>
+                                    <td class="fw-bold">@item.ClassName</td>
+                                    <td class="text-center">@item.Count</td>
+                                    <td class="text-end">@item.AverageDistance.ToString("N2")</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: @tealColor;">Distribuția pasagerilor pe intervale de vârstă</h5>
+                    <div style="height: 300px;">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const labels = @Html.Raw(JsonSerializer.Serialize(Model.AgeBuckets.Select(b => b.Label)));
+        const dataValues = @Html.Raw(JsonSerializer.Serialize(Model.AgeBuckets.Select(b => b.Count)));
+
+        const ctx = document.getElementById('ageChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Număr pasageri',
+                    data: dataValues,
+                    backgroundColor: 'rgba(0, 96, 100, 0.6)',
+                    borderColor: 'rgba(0, 96, 100, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Număr persoane' }
+                    },
+                    x: {
+                        title: { display: true, text: 'Interval vârstă' }
+                    }
+                }
+            }
+        });
+    </script>
+}
