@@ -1,0 +1,858 @@
+﻿{
+  "Scenario": "Classification",
+  "DataSource": {
+    "Version": 3,
+    "EscapeCharacter": "\"",
+    "ReadMultiLines": false,
+    "KeepDiacritics": false,
+    "KeepPunctuations": false,
+    "AllowQuoting": false,
+    "Type": "TabularFile",
+    "FilePath": "C:\\Users\\Malina\\Desktop\\facultate\\master\\an 1 sem 1\\big data\\set de date kaggle\\flight satisfaction\\train.csv",
+    "Delimiter": ",",
+    "DecimalMarker": ".",
+    "HasHeader": true,
+    "ColumnProperties": [
+      {
+        "ColumnName": "column1",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "id",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Gender",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Customer Type",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Age",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Type of Travel",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Class",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Flight Distance",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Inflight wifi service",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Departure/Arrival time convenient",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Ease of Online booking",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Gate location",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Food and drink",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Online boarding",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Seat comfort",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Inflight entertainment",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "On-board service",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Leg room service",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Baggage handling",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Checkin service",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Inflight service",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Cleanliness",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Departure Delay in Minutes",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Arrival Delay in Minutes",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "satisfaction",
+        "ColumnPurpose": "Label",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      }
+    ]
+  },
+  "Environment": {
+    "Type": "LocalCPU",
+    "Version": 1
+  },
+  "RunHistory": {
+    "Version": 3,
+    "Type": "Result",
+    "Trials": [
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "LightGbmMulti",
+        "Score": 0.96376149776860909,
+        "RuntimeInSeconds": 62.223,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e6 * e11",
+          "e0": {
+            "OutputColumnNames": [
+              "Gender",
+              "Customer Type",
+              "Type of Travel",
+              "Class"
+            ],
+            "InputColumnNames": [
+              "Gender",
+              "Customer Type",
+              "Type of Travel",
+              "Class"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "column1",
+              "id",
+              "Age",
+              "Flight Distance",
+              "Inflight wifi service",
+              "Departure/Arrival time convenient",
+              "Ease of Online booking",
+              "Gate location",
+              "Food and drink",
+              "Online boarding",
+              "Seat comfort",
+              "Inflight entertainment",
+              "On-board service",
+              "Leg room service",
+              "Baggage handling",
+              "Checkin service",
+              "Inflight service",
+              "Cleanliness",
+              "Departure Delay in Minutes",
+              "Arrival Delay in Minutes"
+            ],
+            "InputColumnNames": [
+              "column1",
+              "id",
+              "Age",
+              "Flight Distance",
+              "Inflight wifi service",
+              "Departure/Arrival time convenient",
+              "Ease of Online booking",
+              "Gate location",
+              "Food and drink",
+              "Online boarding",
+              "Seat comfort",
+              "Inflight entertainment",
+              "On-board service",
+              "Leg room service",
+              "Baggage handling",
+              "Checkin service",
+              "Inflight service",
+              "Cleanliness",
+              "Departure Delay in Minutes",
+              "Arrival Delay in Minutes"
+            ]
+          },
+          "e11": {
+            "OutputColumnName": "PredictedLabel",
+            "InputColumnName": "PredictedLabel"
+          },
+          "e2": {
+            "InputColumnNames": [
+              "Gender",
+              "Customer Type",
+              "Type of Travel",
+              "Class",
+              "column1",
+              "id",
+              "Age",
+              "Flight Distance",
+              "Inflight wifi service",
+              "Departure/Arrival time convenient",
+              "Ease of Online booking",
+              "Gate location",
+              "Food and drink",
+              "Online boarding",
+              "Seat comfort",
+              "Inflight entertainment",
+              "On-board service",
+              "Leg room service",
+              "Baggage handling",
+              "Checkin service",
+              "Inflight service",
+              "Cleanliness",
+              "Departure Delay in Minutes",
+              "Arrival Delay in Minutes"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e3": {
+            "OutputColumnName": "satisfaction",
+            "InputColumnName": "satisfaction",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e6": {
+            "NumberOfLeaves": 216,
+            "MinimumExampleCountPerLeaf": 20,
+            "LearningRate": 0.011843090497324273,
+            "NumberOfTrees": 2837,
+            "SubsampleFraction": 0.076013371556452033,
+            "MaximumBinCountPerFeature": 144,
+            "FeatureFraction": 0.99999999,
+            "L1Regularization": 2E-10,
+            "L2Regularization": 0.044516607381898325,
+            "LabelColumnName": "satisfaction",
+            "FeatureColumnName": "Features"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "LightGbmMulti",
+        "Score": 0.96341590389919118,
+        "RuntimeInSeconds": 55.699,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e6 * e11",
+          "e0": {
+            "OutputColumnNames": [
+              "Gender",
+              "Customer Type",
+              "Type of Travel",
+              "Class"
+            ],
+            "InputColumnNames": [
+              "Gender",
+              "Customer Type",
+              "Type of Travel",
+              "Class"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "column1",
+              "id",
+              "Age",
+              "Flight Distance",
+              "Inflight wifi service",
+              "Departure/Arrival time convenient",
+              "Ease of Online booking",
+              "Gate location",
+              "Food and drink",
+              "Online boarding",
+              "Seat comfort",
+              "Inflight entertainment",
+              "On-board service",
+              "Leg room service",
+              "Baggage handling",
+              "Checkin service",
+              "Inflight service",
+              "Cleanliness",
+              "Departure Delay in Minutes",
+              "Arrival Delay in Minutes"
+            ],
+            "InputColumnNames": [
+              "column1",
+              "id",
+              "Age",
+              "Flight Distance",
+              "Inflight wifi service",
+              "Departure/Arrival time convenient",
+              "Ease of Online booking",
+              "Gate location",
+              "Food and drink",
+              "Online boarding",
+              "Seat comfort",
+              "Inflight entertainment",
+              "On-board service",
+              "Leg room service",
+              "Baggage handling",
+              "Checkin service",
+              "Inflight service",
+              "Cleanliness",
+              "Departure Delay in Minutes",
+              "Arrival Delay in Minutes"
+            ]
+          },
+          "e11": {
+            "OutputColumnName": "PredictedLabel",
+            "InputColumnName": "PredictedLabel"
+          },
+          "e2": {
+            "InputColumnNames": [
+              "Gender",
+              "Customer Type",
+              "Type of Travel",
+              "Class",
+              "column1",
+              "id",
+              "Age",
+              "Flight Distance",
+              "Inflight wifi service",
+              "Departure/Arrival time convenient",
+              "Ease of Online booking",
+              "Gate location",
+              "Food and drink",
+              "Online boarding",
+              "Seat comfort",
+              "Inflight entertainment",
+              "On-board service",
+              "Leg room service",
+              "Baggage handling",
+              "Checkin service",
+              "Inflight service",
+              "Cleanliness",
+              "Departure Delay in Minutes",
+              "Arrival Delay in Minutes"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e3": {
+            "OutputColumnName": "satisfaction",
+            "InputColumnName": "satisfaction",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e6": {
+            "NumberOfLeaves": 2048,
+            "MinimumExampleCountPerLeaf": 20,
+            "LearningRate": 0.093609516667060688,
+            "NumberOfTrees": 3418,
+            "SubsampleFraction": 0.99999977667298645,
+            "MaximumBinCountPerFeature": 199,
+            "FeatureFraction": 0.99999999,
+            "L1Regularization": 2E-10,
+            "L2Regularization": 0.014866740095969782,
+            "LabelColumnName": "satisfaction",
+            "FeatureColumnName": "Features"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastTreeOva",
+        "Score": 0.96330212862978,
+        "RuntimeInSeconds": 2.739,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e4 * e11",
+          "e0": {
+            "OutputColumnNames": [
+              "Gender",
+              "Customer Type",
+              "Type of Travel",
+              "Class"
+            ],
+            "InputColumnNames": [
+              "Gender",
+              "Customer Type",
+              "Type of Travel",
+              "Class"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "column1",
+              "id",
+              "Age",
+              "Flight Distance",
+              "Inflight wifi service",
+              "Departure/Arrival time convenient",
+              "Ease of Online booking",
+              "Gate location",
+              "Food and drink",
+              "Online boarding",
+              "Seat comfort",
+              "Inflight entertainment",
+              "On-board service",
+              "Leg room service",
+              "Baggage handling",
+              "Checkin service",
+              "Inflight service",
+              "Cleanliness",
+              "Departure Delay in Minutes",
+              "Arrival Delay in Minutes"
+            ],
+            "InputColumnNames": [
+              "column1",
+              "id",
+              "Age",
+              "Flight Distance",
+              "Inflight wifi service",
+              "Departure/Arrival time convenient",
+              "Ease of Online booking",
+              "Gate location",
+              "Food and drink",
+              "Online boarding",
+              "Seat comfort",
+              "Inflight entertainment",
+              "On-board service",
+              "Leg room service",
+              "Baggage handling",
+              "Checkin service",
+              "Inflight service",
+              "Cleanliness",
+              "Departure Delay in Minutes",
+              "Arrival Delay in Minutes"
+            ]
+          },
+          "e11": {
+            "OutputColumnName": "PredictedLabel",
+            "InputColumnName": "PredictedLabel"
+          },
+          "e2": {
+            "InputColumnNames": [
+              "Gender",
+              "Customer Type",
+              "Type of Travel",
+              "Class",
+              "column1",
+              "id",
+              "Age",
+              "Flight Distance",
+              "Inflight wifi service",
+              "Departure/Arrival time convenient",
+              "Ease of Online booking",
+              "Gate location",
+              "Food and drink",
+              "Online boarding",
+              "Seat comfort",
+              "Inflight entertainment",
+              "On-board service",
+              "Leg room service",
+              "Baggage handling",
+              "Checkin service",
+              "Inflight service",
+              "Cleanliness",
+              "Departure Delay in Minutes",
+              "Arrival Delay in Minutes"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e3": {
+            "OutputColumnName": "satisfaction",
+            "InputColumnName": "satisfaction",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e4": {
+            "NumberOfLeaves": 79,
+            "MinimumExampleCountPerLeaf": 118,
+            "NumberOfTrees": 6,
+            "MaximumBinCountPerFeature": 486,
+            "FeatureFraction": 0.77028777730957454,
+            "LearningRate": 0.99999977667298645,
+            "LabelColumnName": "satisfaction",
+            "FeatureColumnName": "Features",
+            "DiskTranspose": false
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastTreeOva",
+        "Score": 0.96303629415374792,
+        "RuntimeInSeconds": 3.161,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e4 * e11",
+          "e0": {
+            "OutputColumnNames": [
+              "Gender",
+              "Customer Type",
+              "Type of Travel",
+              "Class"
+            ],
+            "InputColumnNames": [
+              "Gender",
+              "Customer Type",
+              "Type of Travel",
+              "Class"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "column1",
+              "id",
+              "Age",
+              "Flight Distance",
+              "Inflight wifi service",
+              "Departure/Arrival time convenient",
+              "Ease of Online booking",
+              "Gate location",
+              "Food and drink",
+              "Online boarding",
+              "Seat comfort",
+              "Inflight entertainment",
+              "On-board service",
+              "Leg room service",
+              "Baggage handling",
+              "Checkin service",
+              "Inflight service",
+              "Cleanliness",
+              "Departure Delay in Minutes",
+              "Arrival Delay in Minutes"
+            ],
+            "InputColumnNames": [
+              "column1",
+              "id",
+              "Age",
+              "Flight Distance",
+              "Inflight wifi service",
+              "Departure/Arrival time convenient",
+              "Ease of Online booking",
+              "Gate location",
+              "Food and drink",
+              "Online boarding",
+              "Seat comfort",
+              "Inflight entertainment",
+              "On-board service",
+              "Leg room service",
+              "Baggage handling",
+              "Checkin service",
+              "Inflight service",
+              "Cleanliness",
+              "Departure Delay in Minutes",
+              "Arrival Delay in Minutes"
+            ]
+          },
+          "e11": {
+            "OutputColumnName": "PredictedLabel",
+            "InputColumnName": "PredictedLabel"
+          },
+          "e2": {
+            "InputColumnNames": [
+              "Gender",
+              "Customer Type",
+              "Type of Travel",
+              "Class",
+              "column1",
+              "id",
+              "Age",
+              "Flight Distance",
+              "Inflight wifi service",
+              "Departure/Arrival time convenient",
+              "Ease of Online booking",
+              "Gate location",
+              "Food and drink",
+              "Online boarding",
+              "Seat comfort",
+              "Inflight entertainment",
+              "On-board service",
+              "Leg room service",
+              "Baggage handling",
+              "Checkin service",
+              "Inflight service",
+              "Cleanliness",
+              "Departure Delay in Minutes",
+              "Arrival Delay in Minutes"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e3": {
+            "OutputColumnName": "satisfaction",
+            "InputColumnName": "satisfaction",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e4": {
+            "NumberOfLeaves": 79,
+            "MinimumExampleCountPerLeaf": 118,
+            "NumberOfTrees": 6,
+            "MaximumBinCountPerFeature": 485,
+            "FeatureFraction": 0.77031272745300661,
+            "LearningRate": 0.9216840516560515,
+            "LabelColumnName": "satisfaction",
+            "FeatureColumnName": "Features",
+            "DiskTranspose": false
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastTreeOva",
+        "Score": 0.96293438942950627,
+        "RuntimeInSeconds": 1.822,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e4 * e11",
+          "e0": {
+            "OutputColumnNames": [
+              "Gender",
+              "Customer Type",
+              "Type of Travel",
+              "Class"
+            ],
+            "InputColumnNames": [
+              "Gender",
+              "Customer Type",
+              "Type of Travel",
+              "Class"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "column1",
+              "id",
+              "Age",
+              "Flight Distance",
+              "Inflight wifi service",
+              "Departure/Arrival time convenient",
+              "Ease of Online booking",
+              "Gate location",
+              "Food and drink",
+              "Online boarding",
+              "Seat comfort",
+              "Inflight entertainment",
+              "On-board service",
+              "Leg room service",
+              "Baggage handling",
+              "Checkin service",
+              "Inflight service",
+              "Cleanliness",
+              "Departure Delay in Minutes",
+              "Arrival Delay in Minutes"
+            ],
+            "InputColumnNames": [
+              "column1",
+              "id",
+              "Age",
+              "Flight Distance",
+              "Inflight wifi service",
+              "Departure/Arrival time convenient",
+              "Ease of Online booking",
+              "Gate location",
+              "Food and drink",
+              "Online boarding",
+              "Seat comfort",
+              "Inflight entertainment",
+              "On-board service",
+              "Leg room service",
+              "Baggage handling",
+              "Checkin service",
+              "Inflight service",
+              "Cleanliness",
+              "Departure Delay in Minutes",
+              "Arrival Delay in Minutes"
+            ]
+          },
+          "e11": {
+            "OutputColumnName": "PredictedLabel",
+            "InputColumnName": "PredictedLabel"
+          },
+          "e2": {
+            "InputColumnNames": [
+              "Gender",
+              "Customer Type",
+              "Type of Travel",
+              "Class",
+              "column1",
+              "id",
+              "Age",
+              "Flight Distance",
+              "Inflight wifi service",
+              "Departure/Arrival time convenient",
+              "Ease of Online booking",
+              "Gate location",
+              "Food and drink",
+              "Online boarding",
+              "Seat comfort",
+              "Inflight entertainment",
+              "On-board service",
+              "Leg room service",
+              "Baggage handling",
+              "Checkin service",
+              "Inflight service",
+              "Cleanliness",
+              "Departure Delay in Minutes",
+              "Arrival Delay in Minutes"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e3": {
+            "OutputColumnName": "satisfaction",
+            "InputColumnName": "satisfaction",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e4": {
+            "NumberOfLeaves": 97,
+            "MinimumExampleCountPerLeaf": 108,
+            "NumberOfTrees": 6,
+            "MaximumBinCountPerFeature": 526,
+            "FeatureFraction": 0.78108002220751049,
+            "LearningRate": 0.99999977667298645,
+            "LabelColumnName": "satisfaction",
+            "FeatureColumnName": "Features",
+            "DiskTranspose": false
+          }
+        }
+      }
+    ],
+    "Estimators": {
+      "e0": "OneHotEncoding",
+      "e1": "ReplaceMissingValues",
+      "e2": "Concatenate",
+      "e3": "MapValueToKey",
+      "e4": "FastTreeOva",
+      "e5": "FastForestOva",
+      "e6": "LightGbmMulti",
+      "e7": "LbfgsLogisticRegressionOva",
+      "e8": "LbfgsMaximumEntropyMulti",
+      "e9": "SdcaMaximumEntropyMulti",
+      "e10": "SdcaLogisticRegressionOva",
+      "e11": "MapKeyToValue"
+    },
+    "Schema": "e0 * e1 * e2 * e3 * (e4 + e5 + e6 + e7 + e8 + e9 + e10) * e11",
+    "MetricName": "MacroAccuracy",
+    "ModelFilePath": "C:\\Users\\Malina\\Desktop\\facultate\\master\\an 1 sem 1\\big data\\proiect\\Proiect_Zboruri_Cilibia_Malina-master\\SatisfactionModel.mlnet"
+  },
+  "Type": "TrainingConfig",
+  "Version": 5,
+  "TrainingOption": {
+    "Version": 2,
+    "Subsampling": false,
+    "Type": "ClassificationTrainingOption",
+    "TrainingTime": 600,
+    "LabelColumn": "satisfaction",
+    "ValidationOption": {
+      "Version": 0,
+      "Type": "TrainValidateSplitValidationOption",
+      "SplitRatio": 0.2
+    }
+  }
+}

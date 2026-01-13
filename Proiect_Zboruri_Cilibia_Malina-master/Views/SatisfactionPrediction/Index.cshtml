@@ -1,0 +1,184 @@
+﻿@model Proiect_Zboruri_Cilibia_Malina.Models.SatisfactionPredictionViewModel
+
+@{
+    ViewData["Title"] = "Predictie satisfactie";
+    var tealColor = "color: #006064;";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card card-neutral shadow-lg">
+                <div class="card-body p-4">
+
+                    <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-3">
+                        <h2 class="mb-0" style="@tealColor">Predictie satisfactie pasager</h2>
+                        <a asp-action="History" class="btn btn-teal rounded-pill">
+                            Vezi istoricul predicțiilor anterioare
+                        </a>
+                    </div>
+
+                    <form asp-action="Index" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <h4 class="pb-2 mb-3" style="@tealColor">1. Detalii pasager și zbor</h4>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label asp-for="Gender" class="form-label fw-bold"></label>
+                                <select asp-for="Gender" class="form-control">
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label asp-for="Age" class="form-label fw-bold"></label>
+                                <input asp-for="Age" class="form-control" type="number" min="1" max="100" />
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label asp-for="CustomerType" class="form-label fw-bold"></label>
+                                <select asp-for="CustomerType" class="form-control">
+                                    <option value="Loyal Customer">Loyal Customer</option>
+                                    <option value="disloyal Customer">Disloyal Customer</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label asp-for="TypeOfTravel" class="form-label fw-bold"></label>
+                                <select asp-for="TypeOfTravel" class="form-control">
+                                    <option value="Business travel">Business travel</option>
+                                    <option value="Personal Travel">Personal Travel</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label asp-for="Class" class="form-label fw-bold"></label>
+                                <select asp-for="Class" class="form-control">
+                                    <option value="Business">Business</option>
+                                    <option value="Eco">Eco</option>
+                                    <option value="Eco Plus">Eco Plus</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label asp-for="FlightDistance" class="form-label fw-bold"></label>
+                                <input asp-for="FlightDistance" class="form-control" type="number" />
+                            </div>
+                        </div>
+
+                        <h4 class="pb-2 mb-3 mt-4" style="@tealColor">2. Evaluare servicii (0 - 5)</h4>
+                        <p class="text-muted small mb-4">Trageți de slidere pentru a acorda o notă de la 0 (slab) la 5 (excelent).</p>
+
+                        @{
+                            // Funcție locală pentru a randa un slider
+                            void RenderSlider(string label, string aspFor, float value)
+                            {
+                                <div class="col-md-4 mb-4">
+                                    <label class="small fw-bold d-flex justify-content-between">
+                                        @label
+                                        <span class="badge" style="background-color: #006064; font-size: 0.9em;" id="val-@aspFor">@value</span>
+                                    </label>
+                                    <input name="@aspFor" type="range" class="form-range" min="0" max="5" step="1" value="@value"
+                                           oninput="document.getElementById('val-@aspFor').innerText = this.value">
+                                </div>
+                            }
+                        }
+
+                        <div class="row">
+                            @{
+                                RenderSlider("Seat Comfort", "SeatComfort", Model.SeatComfort);
+                            }
+                            @{
+                                RenderSlider("Inflight Wifi", "InflightWifiService", Model.InflightWifiService);
+                            }
+                            @{
+                                RenderSlider("Food and Drink", "FoodAndDrink", Model.FoodAndDrink);
+                            }
+                        </div>
+
+                        <div class="row">
+                            @{
+                                RenderSlider("Inflight Entertainment", "InflightEntertainment", Model.InflightEntertainment);
+                            }
+                            @{
+                                RenderSlider("Online Boarding", "OnlineBoarding", Model.OnlineBoarding);
+                            }
+                            @{
+                                RenderSlider("Leg Room", "LegRoomService", Model.LegRoomService);
+                            }
+                        </div>
+
+                        <div class="row">
+                            @{
+                                RenderSlider("On-board Service", "OnBoardService", Model.OnBoardService);
+                            }
+                            @{
+                                RenderSlider("Check-in Service", "CheckinService", Model.CheckinService);
+                            }
+                            @{
+                                RenderSlider("Inflight Service", "InflightService", Model.InflightService);
+                            }
+                        </div>
+
+                        <div class="row">
+                            @{
+                                RenderSlider("Cleanliness", "Cleanliness", Model.Cleanliness);
+                            }
+                            @{
+                                RenderSlider("Gate Location", "GateLocation", Model.GateLocation);
+                            }
+                            @{
+                                RenderSlider("Baggage Handling", "BaggageHandling", Model.BaggageHandling);
+                            }
+                        </div>
+
+                        <div class="row">
+                            @{
+                                RenderSlider("Ease of Online Booking", "EaseOfOnlineBooking", Model.EaseOfOnlineBooking);
+                            }
+                            @{
+                                RenderSlider("Departure/Arrival Time", "DepartureArrivalTimeConvenient", Model.DepartureArrivalTimeConvenient);
+                            }
+                        </div>
+
+                        <h4 class="pb-2 mb-3 mt-4" style="@tealColor">3. Întârzieri (minute)</h4>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="DepartureDelayInMinutes" class="form-label fw-bold"></label>
+                                <input asp-for="DepartureDelayInMinutes" class="form-control" type="number" />
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="ArrivalDelayInMinutes" class="form-label fw-bold"></label>
+                                <input asp-for="ArrivalDelayInMinutes" class="form-control" type="number" />
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2 mt-4">
+                            <input type="submit" value="Calculează predicția" class="btn btn-teal btn-lg fw-bold" />
+                        </div>
+                    </form>
+
+                    @if (!string.IsNullOrEmpty(Model.PredictedSatisfaction))
+                    {
+                        <div class="alert alert-info mt-4 text-center shadow-sm" style="border-left: 5px solid #006064;">
+                            <h4 class="mb-2">Rezultatul predicției:</h4>
+                            @if (Model.PredictedSatisfaction == "satisfied")
+                            {
+                                <h1 class="display-5 text-success fw-bold">Satisfied</h1>
+                            }
+                            else
+                            {
+                                <h1 class="display-5 text-warning fw-bold">Neutral or dissatisfied</h1>
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

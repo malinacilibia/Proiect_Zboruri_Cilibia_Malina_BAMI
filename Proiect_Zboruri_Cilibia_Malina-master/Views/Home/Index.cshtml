@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center mb-5 pt-4">
+    <h1 class="display-4 fw-bold" style="color: #006064;">Bine ai venit la Flight Manager! </h1>
+    <p class="lead text-muted">Panoul de administrare pentru zboruri și rezervări.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4 mb-4">
+        <div class="card card-neutral h-100 text-center p-4">
+            <div class="card-body">
+                <h3 class="card-title fw-bold">Zboruri</h3>
+                <p class="card-text text-muted">Gestionează orarul de zbor, plecări și sosiri.</p>
+                <a asp-controller="Flights" asp-action="Index" class="btn btn-teal rounded-pill w-100 mt-3">Vezi Zboruri</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card card-neutral h-100 text-center p-4">
+            <div class="card-body">
+                <h3 class="card-title fw-bold">Rezervări</h3>
+                <p class="card-text text-muted">Adaugă rezervări noi și verifică biletele emise.</p>
+                <a asp-controller="Bookings" asp-action="Index" class="btn btn-teal rounded-pill w-100 mt-3">Gestionează Rezervări</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card card-neutral h-100 text-center p-4">
+            <div class="card-body">
+                <h3 class="card-title fw-bold">Pasageri</h3>
+                <p class="card-text text-muted">Baza de date cu toți clienții înregistrați.</p>
+                <a asp-controller="Passengers" asp-action="Index" class="btn btn-teal rounded-pill w-100 mt-3">Vezi Pasageri</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-md-5 mb-4">
+        <div class="card card-neutral h-100 text-center p-4">
+            <div class="card-body">
+                <h3 class="card-title fw-bold">Companii Aeriene</h3>
+                <p class="card-text text-muted">Administrează lista partenerilor aerieni.</p>
+                <a asp-controller="Airlines" asp-action="Index" class="btn btn-teal rounded-pill w-100 mt-3">Administrează Companii</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-5 mb-4">
+        <div class="card card-neutral h-100 text-center p-4">
+            <div class="card-body">
+                <h3 class="card-title fw-bold">Aeroporturi</h3>
+                <p class="card-text text-muted">Gestionează rețeaua de aeroporturi globale.</p>
+                <a asp-controller="Airports" asp-action="Index" class="btn btn-teal rounded-pill w-100 mt-3">Administrează Aeroporturi</a>
+            </div>
+        </div>
+    </div>
+</div>
