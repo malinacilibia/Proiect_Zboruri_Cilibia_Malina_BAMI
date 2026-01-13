@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Proiect_Zboruri_Cilibia_Mal
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SatisfactionModelWebApi", "..\SatisfactionModelWebApi\SatisfactionModelWebApi.csproj", "{8A5AA26A-86A6-4380-9371-6998880C222F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrpcIncidentsService", "..\GrpcIncidentsService\GrpcIncidentsService.csproj", "{03E281DE-70B8-46BE-AEAA-5285DB4289B8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{8A5AA26A-86A6-4380-9371-6998880C222F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A5AA26A-86A6-4380-9371-6998880C222F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A5AA26A-86A6-4380-9371-6998880C222F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03E281DE-70B8-46BE-AEAA-5285DB4289B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03E281DE-70B8-46BE-AEAA-5285DB4289B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03E281DE-70B8-46BE-AEAA-5285DB4289B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03E281DE-70B8-46BE-AEAA-5285DB4289B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

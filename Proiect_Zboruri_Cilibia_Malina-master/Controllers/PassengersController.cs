@@ -19,7 +19,6 @@ namespace Proiect_Zboruri_Cilibia_Malina.Controllers
             _context = context;
         }
 
-        // GET: Passengers
         public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
             ViewData["LastNameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "lastname_desc" : "";
@@ -56,7 +55,6 @@ namespace Proiect_Zboruri_Cilibia_Malina.Controllers
             return View(await passengers.AsNoTracking().ToListAsync());
         }
 
-        // GET: Passengers/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -74,7 +72,6 @@ namespace Proiect_Zboruri_Cilibia_Malina.Controllers
             return View(passenger);
         }
 
-        // GET: Passengers/Create
         public IActionResult Create()
         {
             return View();

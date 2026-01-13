@@ -19,7 +19,6 @@ namespace Proiect_Zboruri_Cilibia_Malina.Controllers
             _context = context;
         }
 
-        // GET: Airlines
         public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
@@ -46,7 +45,6 @@ namespace Proiect_Zboruri_Cilibia_Malina.Controllers
             return View(await airlines.AsNoTracking().ToListAsync());
         }
 
-        // GET: Airlines/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)

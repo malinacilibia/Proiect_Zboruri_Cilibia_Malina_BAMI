@@ -12,7 +12,7 @@ namespace Proiect_Zboruri_Cilibia_Malina.Controllers
     public class SatisfactionPredictionController : Controller
     {
         private readonly ISatisfactionPredictionService _satisfactionService;
-        private readonly FlightContext _context; // Baza de date
+        private readonly FlightContext _context; 
 
         public SatisfactionPredictionController(ISatisfactionPredictionService satisfactionService, FlightContext context)
         {
@@ -20,14 +20,12 @@ namespace Proiect_Zboruri_Cilibia_Malina.Controllers
             _context = context;
         }
 
-        // GET: /SatisfactionPrediction/Index
         [HttpGet]
         public IActionResult Index()
         {
             return View(new SatisfactionPredictionViewModel());
         }
 
-        // POST: /SatisfactionPrediction/Index
         [HttpPost]
         public async Task<IActionResult> Index(SatisfactionPredictionViewModel model)
         {
@@ -38,7 +36,6 @@ namespace Proiect_Zboruri_Cilibia_Malina.Controllers
 
             try
             {
-                // 1. Pregătim datele pentru API
                 var input = new SatisfactionInput
                 {
                     Gender = model.Gender,
@@ -71,7 +68,6 @@ namespace Proiect_Zboruri_Cilibia_Malina.Controllers
                     Satisfaction = ""
                 };
 
-                // 2. Apelăm API-ul
                 var prediction = await _satisfactionService.PredictSatisfactionAsync(input);
 
                 if (string.IsNullOrEmpty(prediction))
@@ -80,17 +76,13 @@ namespace Proiect_Zboruri_Cilibia_Malina.Controllers
                 }
                 else
                 {
-                    // Setăm rezultatul în View
                     model.PredictedSatisfaction = prediction;
 
-                    // 3. SALVĂM ÎN ISTORIC (BAZA DE DATE)
-                    // Copiem TOATE câmpurile manual
                     var historyItem = new SatisfactionPredictionHistory
                     {
                         CreatedAt = DateTime.Now,
                         PredictedSatisfaction = prediction,
 
-                        // Date Pasager
                         Gender = model.Gender,
                         CustomerType = model.CustomerType,
                         Age = model.Age,
@@ -98,7 +90,6 @@ namespace Proiect_Zboruri_Cilibia_Malina.Controllers
                         Class = model.Class,
                         FlightDistance = model.FlightDistance,
 
-                        // Servicii
                         SeatComfort = model.SeatComfort,
                         InflightWifiService = model.InflightWifiService,
                         FoodAndDrink = model.FoodAndDrink,
@@ -114,7 +105,6 @@ namespace Proiect_Zboruri_Cilibia_Malina.Controllers
                         EaseOfOnlineBooking = model.EaseOfOnlineBooking,
                         DepartureArrivalTimeConvenient = model.DepartureArrivalTimeConvenient,
 
-                        // Întârzieri
                         DepartureDelayInMinutes = model.DepartureDelayInMinutes,
                         ArrivalDelayInMinutes = model.ArrivalDelayInMinutes
                     };
@@ -131,11 +121,9 @@ namespace Proiect_Zboruri_Cilibia_Malina.Controllers
             return View(model);
         }
 
-        // GET: /SatisfactionPrediction/History
         [HttpGet]
         public async Task<IActionResult> History()
         {
-            // Returnăm lista completă din baza de date, ordonată descrescător după dată
             var history = await _context.PredictionHistories
                                         .OrderByDescending(p => p.CreatedAt)
                                         .ToListAsync();

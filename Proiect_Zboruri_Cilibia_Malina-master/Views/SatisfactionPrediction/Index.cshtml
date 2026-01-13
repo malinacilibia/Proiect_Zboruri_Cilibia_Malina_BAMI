@@ -69,7 +69,6 @@
                         <p class="text-muted small mb-4">Trageți de slidere pentru a acorda o notă de la 0 (slab) la 5 (excelent).</p>
 
                         @{
-                            // Funcție locală pentru a randa un slider
                             void RenderSlider(string label, string aspFor, float value)
                             {
                                 <div class="col-md-4 mb-4">
@@ -163,11 +162,11 @@
                             <h4 class="mb-2">Rezultatul predicției:</h4>
                             @if (Model.PredictedSatisfaction == "satisfied")
                             {
-                                <h1 class="display-5 text-success fw-bold">Satisfied</h1>
+                                <h1 class="display-5 fw-bold">Satisfied</h1>
                             }
                             else
                             {
-                                <h1 class="display-5 text-warning fw-bold">Neutral or dissatisfied</h1>
+                                <h1 class="display-5  fw-bold">Neutral or dissatisfied</h1>
                             }
                         </div>
                     }

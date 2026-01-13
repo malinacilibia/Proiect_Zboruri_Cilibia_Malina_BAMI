@@ -4,33 +4,30 @@ namespace Proiect_Zboruri_Cilibia_Malina.Models
 {
     public class SatisfactionInput
     {
-        // 1. Identificatori (probabil nu influenteaza predictia, dar sunt in JSON)
         [JsonPropertyName("column1")]
         public float Column1 { get; set; }
 
         [JsonPropertyName("id")]
         public float Id { get; set; }
 
-        // 2. Date Demografice si Tip Calatorie
         [JsonPropertyName("gender")]
-        public string Gender { get; set; } // "Male" / "Female"
+        public string Gender { get; set; } 
 
         [JsonPropertyName("customer_Type")]
-        public string CustomerType { get; set; } // "Loyal Customer" / "disloyal Customer"
+        public string CustomerType { get; set; }
 
         [JsonPropertyName("age")]
         public float Age { get; set; }
 
         [JsonPropertyName("type_of_Travel")]
-        public string TypeOfTravel { get; set; } // "Business travel" / "Personal Travel"
+        public string TypeOfTravel { get; set; }
 
         [JsonPropertyName("class")]
-        public string Class { get; set; } // "Business", "Eco", "Eco Plus"
+        public string Class { get; set; } 
 
         [JsonPropertyName("flight_Distance")]
         public float FlightDistance { get; set; }
 
-        // 3. Servicii si Confort (Note 0-5)
         [JsonPropertyName("inflight_wifi_service")]
         public float InflightWifiService { get; set; }
 
@@ -73,14 +70,12 @@ namespace Proiect_Zboruri_Cilibia_Malina.Models
         [JsonPropertyName("cleanliness")]
         public float Cleanliness { get; set; }
 
-        // 4. Intarzieri
         [JsonPropertyName("departure_Delay_in_Minutes")]
         public float DepartureDelayInMinutes { get; set; }
 
         [JsonPropertyName("arrival_Delay_in_Minutes")]
         public float ArrivalDelayInMinutes { get; set; }
 
-        // 5. Variabila Tinta (poate fi lasata goala la input, dar e in schema)
         [JsonPropertyName("satisfaction")]
         public string Satisfaction { get; set; }
     }

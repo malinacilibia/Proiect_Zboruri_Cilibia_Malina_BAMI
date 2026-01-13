@@ -8,7 +8,6 @@ namespace Proiect_Zboruri_Cilibia_Malina.Models
         [Key]
         public int ID { get; set; }
 
-        // --- Date Demografice & Zbor ---
         [Display(Name = "Gen")]
         public string Gender { get; set; }
 
@@ -27,7 +26,6 @@ namespace Proiect_Zboruri_Cilibia_Malina.Models
         [Display(Name = "Distanță Zbor")]
         public float FlightDistance { get; set; }
 
-        // --- Servicii (Note) ---
         [Display(Name = "Wifi")]
         public float InflightWifiService { get; set; }
 
@@ -70,14 +68,12 @@ namespace Proiect_Zboruri_Cilibia_Malina.Models
         [Display(Name = "Curățenie")]
         public float Cleanliness { get; set; }
 
-        // --- Întârzieri ---
         [Display(Name = "Întârziere Plecare (min)")]
         public float DepartureDelayInMinutes { get; set; }
 
         [Display(Name = "Întârziere Sosire (min)")]
         public float ArrivalDelayInMinutes { get; set; }
 
-        // --- Rezultat ---
         [Display(Name = "Predicție")]
         public string PredictedSatisfaction { get; set; }
 

@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcIncidentsService"; 
+package incident;
+
+service IncidentService {
+  rpc GetAll (Empty) returns (IncidentList);
+  rpc Get (IncidentId) returns (Incident);
+  rpc Insert (Incident) returns (Empty);
+  rpc Update (Incident) returns (Incident);
+  rpc Delete (IncidentId) returns (Empty);
+}
+
+message Empty {}
+
+message Incident {
+    int32 id = 1;
+    string title = 2;      
+    string description = 3; 
+    bool isResolved = 4;    
+}
+
+message IncidentList {
+    repeated Incident item = 1;
+}
+
+message IncidentId {
+    int32 id = 1;
+}

@@ -1,0 +1,67 @@
+﻿@model GrpcIncidentsService.IncidentList
+
+@{
+    ViewData["Title"] = "Jurnal incidente";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 style="color: #006064;">Jurnal incidente operaționale</h2>
+        <a asp-action="Create" class="btn btn-teal rounded-pill">Raportează incident nou</a>
+    </div>
+
+    @if (Model == null || Model.Item.Count == 0)
+    {
+        <div class="alert alert-info text-center">
+            Nu există incidente raportate momentan.
+        </div>
+    }
+    else
+    {
+        <div class="card shadow-sm">
+            <div class="card-body p-0">
+                <table class="table table-hover mb-0 text-center align-middle">
+                    <thead style="background-color: #006064; color: white;">
+                        <tr>
+                            <th>Id</th>
+                            <th>Titlu</th>
+                            <th>Descriere</th>
+                            <th>Status</th>
+                            <th>Acțiuni</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Item)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td class="fw-bold text-start">@item.Title</td>
+                                <td class="text-start">@item.Description</td>
+                                <td>
+                                    @if (item.IsResolved)
+                                    {
+                                        <span class="badge bg-success">Rezolvat</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-danger">Deschis</span>
+                                    }
+                                </td>
+                                <td>
+                                    <div class="btn-group" role="group" style="gap: 5px;">
+                                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-teal rounded-pill">
+                                            Editează
+                                        </a>
+                                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-teal rounded-pill">
+                                            Șterge
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+</div>

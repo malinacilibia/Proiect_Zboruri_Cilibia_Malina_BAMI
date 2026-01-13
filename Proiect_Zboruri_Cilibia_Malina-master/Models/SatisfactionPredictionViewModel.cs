@@ -4,7 +4,6 @@ namespace Proiect_Zboruri_Cilibia_Malina.Models
 {
     public class SatisfactionPredictionViewModel
     {
-        // --- Date Demografice și Zbor ---
 
         [Display(Name = "Gender (Male/Female)")]
         public string Gender { get; set; }
@@ -24,7 +23,6 @@ namespace Proiect_Zboruri_Cilibia_Malina.Models
         [Display(Name = "Flight Distance")]
         public float FlightDistance { get; set; }
 
-        // --- Servicii (Note 0-5) ---
 
         [Display(Name = "Inflight Wifi Service (0-5)")]
         public float InflightWifiService { get; set; }
@@ -68,7 +66,6 @@ namespace Proiect_Zboruri_Cilibia_Malina.Models
         [Display(Name = "Cleanliness (0-5)")]
         public float Cleanliness { get; set; }
 
-        // --- Întârzieri ---
 
         [Display(Name = "Departure Delay (Minutes)")]
         public float DepartureDelayInMinutes { get; set; }
@@ -76,7 +73,6 @@ namespace Proiect_Zboruri_Cilibia_Malina.Models
         [Display(Name = "Arrival Delay (Minutes)")]
         public float ArrivalDelayInMinutes { get; set; }
 
-        // --- REZULTATUL ÎNTORS DE API ---
         [Display(Name = "Predicted Satisfaction")]
         public string? PredictedSatisfaction { get; set; }
     }

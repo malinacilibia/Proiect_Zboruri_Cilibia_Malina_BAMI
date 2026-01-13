@@ -1,0 +1,40 @@
+﻿@model GrpcIncidentsService.Incident
+
+@{
+    ViewData["Title"] = "Ștergere incident";
+}
+
+<div class="container mt-5">
+    <div class=" text-center">
+        <h4 class="mb-2">Ești sigur că vrei să ștergi acest incident?</h4>
+        <p class="mb-0">Această acțiune este ireversibilă.</p>
+    </div>
+
+    <div class="card shadow mx-auto" style="max-width: 600px;">
+        <div class="card-body p-4">
+            <h5 class="card-title fw-bold" style="color: #006064;">@Model.Title</h5>
+            <p class="card-text text-muted">@Model.Description</p>
+            <hr />
+            <p>
+                <strong>Status:</strong>
+                @if (Model.IsResolved)
+                {
+                    <span class="badge bg-success">Rezolvat</span>
+                }
+                else
+                {
+                    <span class="badge bg-danger">Deschis</span>
+                }
+            </p>
+
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="Id" />
+                <div class="d-flex justify-content-between mt-4">
+                    <a asp-action="Index" class="btn btn-outline-secondary rounded-pill px-4">Nu, anulează</a>
+
+                    <input type="submit" value="Da, șterge incidentul" class="btn btn-danger px-4" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
